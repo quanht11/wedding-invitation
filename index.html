@@ -1,157 +1,141 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <title>Wedding Story</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #fefaf6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1, h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #8b5e3c;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* Hiệu ứng mở màn */
+    .curtain {
+      position: relative;
+      min-height: 100vh;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .curtain::before, .curtain::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: #8b0000;
+      transition: transform 2s ease;
+      z-index: 2;
+    }
+
+    .curtain::before {
+      left: 0;
+    }
+    .curtain::after {
+      right: 0;
+    }
+
+    .curtain.open::before {
+      transform: translateX(-100%);
+    }
+    .curtain.open::after {
+      transform: translateX(100%);
+    }
+
+    .curtain-content {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+    .curtain.open .curtain-content {
+      opacity: 1;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      border: none;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="vi"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Wedding Story&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Georgia', serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fefaf6;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow-x: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>section {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1, h2 {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Great Vibes', cursive;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 3em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: #8b5e3c;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>p {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 1.2em;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 700px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Hiệu ứng mở màn */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain::before, .curtain::after {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #8b0000;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 2s ease;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 2;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain::before {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain::after {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>right: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain.open::before {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateX(-100%);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain.open::after {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translateX(100%);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain-content {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index: 1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition: opacity 2s ease;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.curtain.open .curtain-content {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>iframe {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 400px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Trang mở đầu --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section style="background:#fce4ec;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Ngày xửa ngày xưa...&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Một chàng trai và một cô gái tình cờ gặp nhau. Và từ đó, một câu chuyện cổ tích bắt đầu.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Chương 1 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section style="background:#fff8e1;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Chương 1: Cuộc Gặp Gỡ&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Họ gặp nhau trong một buổi chiều bình thường, nhưng nụ cười ấy lại khiến con tim rung động.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Chương 2 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section style="background:#e8f5e9;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Chương 2: Những Ngày Bên Nhau&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Những chuyến đi, những buổi hẹn hò, những kỷ niệm đã dệt nên một bức tranh tình yêu diệu kỳ.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Chương 3 --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section style="background:#e3f2fd;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Chương 3: Lời Hứa Trăm Năm&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Và rồi, chàng trai ngỏ lời cầu hôn. Cô gái mỉm cười gật đầu. Từ đây, họ chọn cùng nhau bước tiếp.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Happy Ending (Mở màn sân khấu) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="curtain" id="wedding"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="curtain-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Happy Ending 🎉&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;Trân trọng kính mời bạn đến chung vui trong ngày cưới của chúng tôi.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;b&gt;Thời gian:&lt;/b&gt; 9h sáng, ngày 09/11/2025&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;&lt;b&gt;Địa điểm:&lt;/b&gt; Nhà hàng Hạnh Phúc, Hà Nội&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!..."&gt;&lt;/iframe&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;👉 Hãy xác nhận tham dự tại đây:&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd.../viewform?embedded=true"&gt;&lt;/iframe&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Khi scroll tới phần cưới thì mở màn</p>
-<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener('scroll', function() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const curtain = document.getElementById('wedding');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const rect = curtain.getBoundingClientRect();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (rect.top &lt; window.innerHeight * 0.75) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>curtain.classList.add('open');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+  <!-- Trang mở đầu -->
+  <section style="background:#fce4ec;">
+    <h1>Ngày xửa ngày xưa...</h1>
+    <p>Một chàng trai và một cô gái tình cờ gặp nhau. Và từ đó, một câu chuyện cổ tích bắt đầu.</p>
+  </section>
+
+  <!-- Chương 1 -->
+  <section style="background:#fff8e1;">
+    <h2>Chương 1: Cuộc Gặp Gỡ</h2>
+    <p>Họ gặp nhau trong một buổi chiều bình thường, nhưng nụ cười ấy lại khiến con tim rung động.</p>
+  </section>
+
+  <!-- Chương 2 -->
+  <section style="background:#e8f5e9;">
+    <h2>Chương 2: Những Ngày Bên Nhau</h2>
+    <p>Những chuyến đi, những buổi hẹn hò, những kỷ niệm đã dệt nên một bức tranh tình yêu diệu kỳ.</p>
+  </section>
+
+  <!-- Chương 3 -->
+  <section style="background:#e3f2fd;">
+    <h2>Chương 3: Lời Hứa Trăm Năm</h2>
+    <p>Và rồi, chàng trai ngỏ lời cầu hôn. Cô gái mỉm cười gật đầu. Từ đây, họ chọn cùng nhau bước tiếp.</p>
+  </section>
+
+  <!-- Happy Ending (Mở màn sân khấu) -->
+  <section class="curtain" id="wedding">
+    <div class="curtain-content">
+      <h2>Happy Ending 🎉</h2>
+      <p>Trân trọng kính mời bạn đến chung vui trong ngày cưới của chúng tôi.</p>
+      <p><b>Thời gian:</b> 9h sáng, ngày 09/11/2025</p>
+      <p><b>Địa điểm:</b> Nhà hàng Hạnh Phúc, Hà Nội</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!..."></iframe>
+      <p>👉 Hãy xác nhận tham dự tại đây:</p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd.../viewform?embedded=true"></iframe>
+    </div>
+  </section>
+
+  <script>
+    // Khi scroll tới phần cưới thì mở màn
+    window.addEventListener('scroll', function() {
+      const curtain = document.getElementById('wedding');
+      const rect = curtain.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.75) {
+        curtain.classList.add('open');
+      }
+    });
+  </script>
+
 </body>
 </html>
